@@ -1,0 +1,107 @@
+<c-col xs="12">
+    <c-card class="mb-4">
+        <c-card-header>
+            <strong>Spazi pubblicitari</strong>
+        </c-card-header>
+        <c-card-body>
+
+
+            <p-table #dt1 styleClass="p-datatable-striped" [value]="listaspazi" dataKey="idspazio"
+                     [globalFilterFields]="['idspazio','posizione','descrizione']">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex">
+			<span class="p-input-icon-left p-ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt1.filterGlobal(getValueFromEvent($event), 'contains')" placeholder="Cerca" />
+            </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+
+                        <th colspan="2">ID </th>
+                        <th> Posizione</th>
+                        <th >Prezzo </th>
+
+                        <th >Stato </th>
+                        <th >Operatore </th>
+                        <th style="width: 3rem"></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-spazio let-expanded="expanded">
+                    <tr >
+
+                        <td style="text-transform:uppercase" colspan="2">{{spazio.idspazio}}</td>
+                        <td>{{spazio.altreinfo[0].posizione}}</td>
+                        <td>{{spazio.prezzo}}</td>
+                        <td>  <select [ngClass]="spazio.stato === '1' ? 'verde' : spazio.stato === '3' ? 'rosso' : 'arancione'"  (change)="update(spazio)" [(ngModel)]="spazio.stato">
+                            <option value="1" >Libero</option>
+                            <option value="2">In trattativa</option>
+                            <option value="3">Venduto</option>
+                        </select>
+                        </td>
+                        <td>{{spazio.operatore}}</td>
+                        <td>
+                            <div role="button" style="width: 25px; height: 25px;" [pRowToggler]="spazio">
+                                <img style="width: 13px; height: 13px" src="assets/images/Icona1.svg">
+                            </div>
+
+
+                        </td>
+                <!--        <td><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
+                        <td><span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span></td> -->
+                    </tr>
+                </ng-template>
+
+
+
+                <ng-template pTemplate="rowexpansion" let-spazio>
+                    <tr>
+                        <td colspan="12">
+                            <div class="p-p-3">
+                                <p-table [value]="spazio.altreinfo" dataKey="codice2">
+                                    <ng-template pTemplate="header">
+                    <tr>
+                    <th>Moduli  </th>
+                    <th >Descrizione  </th>
+                    <th >Codice2  </th>
+                    <th >Periodo </th>
+                    <th >Modulo </th>
+                    <th >Misura </th>
+                    <th >Importo Totale </th>
+                    <th >Note </th>
+
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-info>
+                    <tr>
+                        <td >{{info.moduli}}</td>
+                        <td>{{info.descrizione}}</td>
+
+                        <td>{{info.codice2}}</td>
+                        <td>{{info.periodo}}</td>
+                        <td>{{info.modulo}}</td>
+                        <td>{{info.misura}}</td>
+                        <td>{{info.importototale}}</td>
+                        <td>{{info.note}}</td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="6">Non ci sono altre informazioni</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            </div>
+            </td>
+            </tr>
+            </ng-template>
+            </p-table>
+
+
+        </c-card-body>
+    </c-card>
+</c-col>
+
+

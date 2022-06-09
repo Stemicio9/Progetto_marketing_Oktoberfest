@@ -1,0 +1,33 @@
+
+
+<c-col xs="12">
+    <c-card class="mb-4">
+        <c-card-header>
+            <strong>Utenti</strong>
+        </c-card-header>
+        <c-card-body>
+
+
+            <p-table styleClass="p-datatable-striped" [value]="listautenti">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nome Completo</th>
+                        <th>Email</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-utente>
+                    <tr >
+
+                        <td >{{utente.nome}}</td>
+                        <td >{{utente.email}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+
+
+
+        </c-card-body>
+    </c-card>
+</c-col>
+
+

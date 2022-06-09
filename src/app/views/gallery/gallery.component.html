@@ -1,0 +1,27 @@
+<!-- <c-input-group>
+    <input type="file" accept="image/*" value="add" (change)="immaginecambiata($event)" aria-describedby="inputGroupFileAddon04"
+           aria-label="Upload"
+           cFormControl
+           id="inputGroupFile04"
+           type="file"
+    />
+</c-input-group>
+<span *ngIf="filecaricato">Immagine caricata, Ricaricare la pagina per vedere tutta la galleria(Temporaneo)</span> -->
+<c-input-group>
+    <select #selectordrop id="selectordrop" (change)="updatecartella()" [(ngModel)]="cartellaselezionata" cSelect>
+        <option *ngFor="let cartella of listacartelle" value="{{cartella.name}}">{{cartella.name}}</option>
+    </select>
+</c-input-group>
+<br>
+<div class="row">
+   <!-- <div  class="col-md-6" *ngFor="let img of files">
+        <a [href]="img" target="_blank"> <img role="button"  src="{{img}}"></a>
+        <br>
+        <br>
+    </div> -->
+   <!-- <gallery  [items]="images"></gallery> -->
+
+    <ng-image-slider [images]="images" #nav [imageSize]="size"></ng-image-slider>
+</div>
+
+

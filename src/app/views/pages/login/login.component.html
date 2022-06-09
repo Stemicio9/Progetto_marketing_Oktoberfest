@@ -1,0 +1,42 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col md="8">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <form cForm>
+                <h1>Login</h1>
+                <p class="text-medium-emphasis">Sign In to your account</p>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input [(ngModel)]="email" autoComplete="email" cFormControl placeholder="Email" name="email"/>
+                </c-input-group>
+                <c-input-group class="mb-4">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input [(ngModel)]="password" autoComplete="current-password" cFormControl name="password" placeholder="Password" type="password"/>
+                </c-input-group>
+                <c-row>
+                  <c-col xs="6">
+                    <button (click)="login()" cButton class="px-4" color="primary">
+                      Login
+                    </button>
+
+                    <span  *ngIf="mostrareMessaggio()">
+                     <h2 class="alignCenter" style="color: red">{{messaggio}}</h2>
+                    </span>
+
+                  </c-col>
+                </c-row>
+              </form>
+            </c-card-body>
+          </c-card>
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>

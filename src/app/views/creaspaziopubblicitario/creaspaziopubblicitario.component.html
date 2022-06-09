@@ -1,0 +1,75 @@
+
+<c-row>
+    <c-col xs="12">
+        <c-card class="mb-4">
+            <c-card-header>
+                <strong>Crea spazio pubblicitario</strong>
+            </c-card-header>
+            <c-card-body>
+
+                <c-row>
+                    <c-col xs>
+                        <input [(ngModel)]="spaziodaaggiungere.idspazio"  cFormControl placeholder="ID" />
+                    </c-col>
+                    <c-col xs>
+                        <input cFormControl [(ngModel)]="spaziodaaggiungere.prezzo" placeholder="Prezzo" >
+                    </c-col>
+                </c-row>
+               <br>
+                <c-row>
+                    <c-col xs>
+                        <input [(ngModel)]="spaziodaaggiungere.altreinfo![0]!.descrizione"  cFormControl placeholder="Descrizione" />
+                    </c-col>
+                    <c-col xs>
+                        <input cFormControl [(ngModel)]="spaziodaaggiungere.altreinfo![0]!.posizione" placeholder="Posizione" >
+                    </c-col>
+                </c-row>
+                <br>
+                <c-row>
+                    <c-col xs>
+                        <input [(ngModel)]="spaziodaaggiungere.altreinfo![0]!.codice2"  cFormControl placeholder="Codice2" />
+                    </c-col>
+                    <c-col xs>
+                        <input cFormControl [(ngModel)]="spaziodaaggiungere.altreinfo![0]!.periodo" placeholder="Periodo" >
+                    </c-col>
+                </c-row>
+                <br>
+                <c-row>
+                    <c-col xs>
+                        <input [(ngModel)]="spaziodaaggiungere.altreinfo![0]!.modulo"  cFormControl placeholder="Modulo" />
+                    </c-col>
+                    <c-col xs>
+                        <input cFormControl [(ngModel)]="spaziodaaggiungere.altreinfo![0]!.misura" placeholder="Misura" >
+                    </c-col>
+                </c-row>
+                <br>
+                <c-row>
+                    <c-col xs>
+                        <input [(ngModel)]="spaziodaaggiungere.altreinfo![0]!.moduli"  cFormControl placeholder="Moduli" />
+                    </c-col>
+                    <c-col xs>
+                        <input cFormControl [(ngModel)]="spaziodaaggiungere.altreinfo![0]!.importototale" placeholder="Importo Totale" >
+                    </c-col>
+                </c-row>
+                <br>
+                <c-row>
+                    <c-col xs>
+                        <input [(ngModel)]="spaziodaaggiungere.altreinfo![0]!.note"  cFormControl placeholder="Note" />
+                    </c-col>
+                </c-row>
+
+            </c-card-body>
+        </c-card>
+    </c-col>
+</c-row>
+
+<button style="float: right" (click)="crea(spaziodaaggiungere)" class="me-1" cButton color="dark">
+    CREA
+</button>
+
+
+<button style="float: right" type="button" (click)="fileInput.click()" class="me-1" cButton color="dark">
+    <span>CARICA DA CSV</span>
+    <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
+</button>
+
